@@ -2,7 +2,7 @@
 
 including UML design OK and test cases in the README of GitHub
 
-Keeps track of account id, balance, transactions, note: use properties to access these instance variables
+Keeps track of account id, balance, transactions, note: use properties to access these instance variables OK
 
 An account can be created given the customer name, initial balance, OK
 
@@ -26,58 +26,71 @@ Test the methods in the BankAccount class using the above test cases, considerin
  + Withdrawal (decimal) : void;
 
 */
-public class BankAccount
+namespace BankAccountClass
 {
-    //Fields
-    private static int nextId = 1000;
-    private int id;
-    private decimal balance;
-    private List<string> transactions;
-    private string accountOwner;
-
-    //Constructor
-    public BankAccount(string name, decimal initialBalance)
+    public class BankAccount
     {
-        accountOwner = name;
-        balance = initialBalance;
-        id = nextId;
-        nextId++;
+        //Fields
+        private static int nextId = 1000;
+        private int id;
+        private decimal balance;
+        private List<string> transactions;
+        private string accountOwner;
 
-        transactions = new List<string>();
-        transactions.Add($"Your current balance is ${balance}");
-
-    }
-
-    //Properties
-    public int ID { get { return id; } }
-
-    public decimal Balance { get { return balance; } }
-
-    public List<string> Transactions { get { return transactions; } }
-
-    public string AccountOwner { get { return accountOwner; } }
-
-    //Methods
-    public void Deposit(decimal amount)
-    {
-    
-        balance += amount;
-        transactions.Add($"You've a ${amount} deposit. Your current balance is ${balance}");
-
-    }
-
-    public void Withdraw(decimal amount)
-    {
-        if (amount > balance)
+        //Constructor
+        public BankAccount(string name, decimal initialBalance)
         {
-            Console.WriteLine("Your account doesn't have sufficient funds to perform this transaction.");
-            Console.WriteLine($"Your current balance is ${balance}");
-        }
-        else
-        {
-            balance -= amount;
-            transactions.Add($"You've a ${amount} withdrawal. Your current balance is ${balance}");
+            accountOwner = name;
+            balance = (initialBalance < 0) ? 0 : initialBalance;
+            id = nextId;
+            nextId++;
+
+            transactions = new List<string>();
+            transactions.Add($"Your current balance is ${balance}");
+
         }
 
+        //Properties
+        public int ID { get { return id; } }
+
+        public decimal Balance { get { return balance; } }
+
+        public List<string> Transactions { get { return transactions; } }
+
+        public string AccountOwner { get { return accountOwner; } }
+
+        //Methods
+        public void Deposit(decimal amount)
+        {
+            if (amount < 0)
+            {
+                Console.WriteLine("Add a positive amount to your deposit");
+            }
+            else
+            {
+                balance += amount;
+                transactions.Add($"You've a ${amount} deposit. Your current balance is ${balance}");
+            }
+        }
+
+        public void Withdraw(decimal amount)
+        {
+            if (amount > balance)
+            {
+                Console.WriteLine("Your account doesn't have sufficient funds to perform this transaction.");
+                Console.WriteLine($"Your current balance is ${balance}");
+            }
+            else if (amount < 0)
+            {
+                Console.WriteLine("Insert a positive amount to your withdrawal");
+            }
+            else
+            {
+                balance -= amount;
+                transactions.Add($"You've a ${amount} withdrawal. Your current balance is ${balance}");
+            }
+
+        }
     }
+
 }
