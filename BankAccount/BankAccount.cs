@@ -6,13 +6,13 @@ Keeps track of account id, balance, transactions, note: use properties to access
 
 An account can be created given the customer name, initial balance, OK
 
-Create deposit and withdrawal methods.
+Create deposit and withdrawal methods. OK
 
 Test the methods in the BankAccount class using the above test cases, considering all possible success and failure cases*/
 
 /*              BankAccount
 ---------------------------------------
-- <static> nextId : int;
+- <<static>> nextId : int;
 - id : int;
 - balance : decimal;                     
 - accountOwner : string;
@@ -22,8 +22,8 @@ Test the methods in the BankAccount class using the above test cases, considerin
  + Balance : decimal {get};
  + AccountOwner : string {get};
  + Transactions : List <string> {get};
- + deposit (decimal) : void;
- + withdrawal (decimal) : void;
+ + Deposit (decimal) : void;
+ + Withdrawal (decimal) : void;
 
 */
 public class BankAccount
@@ -43,8 +43,8 @@ public class BankAccount
         id = nextId;
         nextId++;
 
-        transactions= new List<string>();
-        transactions.Add($"Your current balance is: {balance}");
+        transactions = new List<string>();
+        transactions.Add($"Your current balance is ${balance}");
 
     }
 
@@ -56,8 +56,28 @@ public class BankAccount
     public List<string> Transactions { get { return transactions; } }
 
     public string AccountOwner { get { return accountOwner; } }
-    
-    //
 
+    //Methods
+    public void Deposit(decimal amount)
+    {
+    
+        balance += amount;
+        transactions.Add($"You've a ${amount} deposit. Your current balance is ${balance}");
 
     }
+
+    public void Withdraw(decimal amount)
+    {
+        if (amount > balance)
+        {
+            Console.WriteLine("Your account doesn't have sufficient funds to perform this transaction.");
+            Console.WriteLine($"Your current balance is ${balance}");
+        }
+        else
+        {
+            balance -= amount;
+            transactions.Add($"You've a ${amount} withdrawal. Your current balance is ${balance}");
+        }
+
+    }
+}
