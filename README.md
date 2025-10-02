@@ -1,6 +1,6 @@
 UML for the BankAccount Class
 
-              BankAccount
+                  BankAccount
 ---------------------------------------
 - id : int;
 - balance : decimal;
