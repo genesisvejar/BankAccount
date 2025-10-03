@@ -63,6 +63,27 @@ namespace BankAccountClass
             foreach (string trans in client3.Transactions)
             {
                 Console.WriteLine(trans);
+
+            }
+            
+            BankAccount client4 = new BankAccount("Steven Morrissey", -200.00m);
+
+            Console.WriteLine($"Client {client4.ID}\n");
+
+            client4.Deposit(100.00m);
+
+            client4.Deposit(800.00m);
+
+            client4.Withdraw(470.89m);
+
+            client4.Deposit(200.00m);
+
+
+            Console.WriteLine($"{client4.AccountOwner} has the following transition history: \n");
+
+            foreach (string trans in client4.Transactions)
+            {
+                Console.WriteLine(trans);
                 
             }
 
