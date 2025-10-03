@@ -69,7 +69,7 @@ namespace BankAccountClass
             else
             {
                 balance += amount;
-                transactions.Add($"You've a ${amount} deposit. Your current balance is ${balance}");
+                transactions.Add($"You've made a ${amount} deposit. Your current balance is ${balance}");
             }
         }
 
@@ -87,7 +87,7 @@ namespace BankAccountClass
             else
             {
                 balance -= amount;
-                transactions.Add($"You've a ${amount} withdrawal. Your current balance is ${balance}");
+                transactions.Add($"You've made a ${amount} withdrawal. Your current balance is ${balance}");
             }
 
         }
