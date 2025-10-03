@@ -46,7 +46,7 @@ namespace BankAccountClass
             nextId++;
 
             transactions = new List<string>();
-            transactions.Add($"Your current balance is ${balance}");
+            transactions.Add($"Your initial balance is ${balance}\n");
 
         }
 
@@ -69,7 +69,8 @@ namespace BankAccountClass
             else
             {
                 balance += amount;
-                transactions.Add($"You've made a ${amount} deposit. Your current balance is ${balance}");
+                Console.WriteLine($"You've successfully deposited ${amount}\n");
+                transactions.Add($"You've made a ${amount} deposit. Your current balance is ${balance}\n");
             }
         }
 
@@ -77,8 +78,8 @@ namespace BankAccountClass
         {
             if (amount > balance)
             {
-                Console.WriteLine("Your account doesn't have sufficient funds to perform this transaction.");
-                Console.WriteLine($"Your current balance is ${balance}");
+                Console.WriteLine($"Your account doesn't have sufficient funds to perform this ${amount} withdrawal.");
+                Console.WriteLine($"Your current balance is ${balance}\n");
             }
             else if (amount < 0)
             {
@@ -87,7 +88,8 @@ namespace BankAccountClass
             else
             {
                 balance -= amount;
-                transactions.Add($"You've made a ${amount} withdrawal. Your current balance is ${balance}");
+                Console.WriteLine($"You've successfully withdrawn ${amount}\n");
+                transactions.Add($"You've made a ${amount} withdrawal. Your current balance is ${balance}\n");
             }
 
         }
