@@ -44,7 +44,7 @@ namespace BankAccountClass
                 Console.WriteLine(trans);
 
             }
-            */
+         
             //the client intents depositing a negative amount
 
             BankAccount client3 = new BankAccount("Juliana Savioli", 500.00m);
@@ -65,7 +65,8 @@ namespace BankAccountClass
                 Console.WriteLine(trans);
 
             }
-            
+
+            //the client intents inputing a negative amount for their initial balance
             BankAccount client4 = new BankAccount("Steven Morrissey", -200.00m);
 
             Console.WriteLine($"Client {client4.ID}\n");
@@ -84,8 +85,32 @@ namespace BankAccountClass
             foreach (string trans in client4.Transactions)
             {
                 Console.WriteLine(trans);
-                
+
             }
+*/
+            //the client intents inputing a negative amount for their initial balance
+            BankAccount client5 = new BankAccount("Nicholas O'Malley", 700.00m);
+
+            Console.WriteLine($"Client {client5.ID}\n");
+
+            client5.Withdraw(-300.00m);
+
+            client5.Deposit(400.00m);
+
+            client5.Withdraw(57.34m);
+
+            client5.Deposit(233.99m);
+
+
+            Console.WriteLine($"{client5.AccountOwner} has the following transition history: \n");
+
+            foreach (string trans in client5.Transactions)
+            {
+                Console.WriteLine(trans);
+
+            }
+
+
 
         }
 

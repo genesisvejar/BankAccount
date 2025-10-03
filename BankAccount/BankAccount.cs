@@ -83,7 +83,7 @@ namespace BankAccountClass
             }
             else if (amount < 0)
             {
-                Console.WriteLine("Insert a positive amount to your withdrawal.");
+                Console.WriteLine($"Unsuccessful {amount} withdrawal. Withdraw a positive amount.\n");
             }
             else
             {
