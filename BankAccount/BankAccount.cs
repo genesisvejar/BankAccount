@@ -46,7 +46,7 @@ namespace BankAccountClass
             nextId++;
 
             transactions = new List<string>();
-            transactions.Add($"Your initial balance is ${balance}\n");
+            transactions.Add($"Your initial balance is ${balance}.\n");
 
         }
 
@@ -64,13 +64,13 @@ namespace BankAccountClass
         {
             if (amount < 0)
             {
-                Console.WriteLine("Add a positive amount to your deposit");
+                Console.WriteLine($"Unsuccessful {amount} deposit. Deposit a positive amount.\n");
             }
             else
             {
                 balance += amount;
-                Console.WriteLine($"You've successfully deposited ${amount}\n");
-                transactions.Add($"You've made a ${amount} deposit. Your current balance is ${balance}\n");
+                Console.WriteLine($"You've successfully deposited ${amount}.\n");
+                transactions.Add($"You've made a ${amount} deposit. Your current balance is ${balance}.\n");
             }
         }
 
@@ -79,17 +79,17 @@ namespace BankAccountClass
             if (amount > balance)
             {
                 Console.WriteLine($"Your account doesn't have sufficient funds to perform this ${amount} withdrawal.");
-                Console.WriteLine($"Your current balance is ${balance}\n");
+                Console.WriteLine($"Your current balance is ${balance}.\n");
             }
             else if (amount < 0)
             {
-                Console.WriteLine("Insert a positive amount to your withdrawal");
+                Console.WriteLine("Insert a positive amount to your withdrawal.");
             }
             else
             {
                 balance -= amount;
-                Console.WriteLine($"You've successfully withdrawn ${amount}\n");
-                transactions.Add($"You've made a ${amount} withdrawal. Your current balance is ${balance}\n");
+                Console.WriteLine($"You've successfully withdrawn ${amount}.\n");
+                transactions.Add($"You've made a ${amount} withdrawal. Your current balance is ${balance}.\n");
             }
 
         }
